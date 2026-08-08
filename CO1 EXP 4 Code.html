@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f2f2f2;
+        }
+
+        .container{
+            width:500px;
+            margin:30px auto;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+        }
+
+        h1{
+            text-align:center;
+            color:#2c3e50;
+        }
+
+        table{
+            width:100%;
+        }
+
+        td{
+            padding:10px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea{
+            width:100%;
+            padding:8px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        textarea{
+            resize:vertical;
+        }
+
+        .buttons{
+            text-align:center;
+        }
+
+        input[type="submit"],
+        input[type="reset"]{
+            padding:10px 20px;
+            margin:10zpx;
+            border:none;
+            border-radius:5px;
+            color:white;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        input[type="submit"]{
+            background-color:#28a745;
+        }
+
+        input[type="reset"]{
+            background-color:#dc3545;
+        }
+
+        input[type="submit"]:hover{
+            background-color:#218838;
+        }
+
+        input[type="reset"]:hover{
+            background-color:#c82333;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Student Registration Form</h1>
+
+<form action="#" method="post">
+
+<table>
+
+<tr>
+    <td><label>Student Name</label></td>
+    <td>
+        <input type="text" name="student_name" placeholder="Enter your name" required>
+    </td>
+</tr>
+
+<tr>
+    <td><label>Password</label></td>
+    <td>
+        <input type="password" name="password" placeholder="Enter password" required>
+    </td>
+</tr>
+
+<tr>
+    <td><label>Email</label></td>
+    <td>
+        <input type="email" name="email" placeholder="Enter email" required>
+    </td>
+</tr>
+
+<tr>
+    <td><label>Age</label></td>
+    <td>
+        <input type="number" name="age" min="17" max="30" required>
+    </td>
+</tr>
+
+<tr>
+    <td><label>Gender</label></td>
+    <td>
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+    </td>
+</tr>
+
+<tr>
+    <td><label>Languages Known</label></td>
+    <td>
+        <input type="checkbox" name="language" value="English"> English
+        <input type="checkbox" name="language" value="Tamil"> Tamil
+        <input type="checkbox" name="language" value="Hindi"> Hindi
+    </td>
+</tr>
+
+<tr>
+    <td><label>Department</label></td>
+    <td>
+        <select name="department" required>
+            <option value="">-- Select Department --</option>
+            <option>Information Technology</option>
+            <option>Computer Science</option>
+            <option>Electronics</option>
+            <option>Mechanical</option>
+            <option>Civil</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td><label>Address</label></td>
+    <td>
+        <textarea rows="4" placeholder="Enter your address"></textarea>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2" class="buttons">
+        <input type="submit" value="Register">
+        <input type="reset" value="Reset">
+    </td>
+</tr>
+
+</table>
+
+</form>
+
+</div>
+
+</body>
+</html>

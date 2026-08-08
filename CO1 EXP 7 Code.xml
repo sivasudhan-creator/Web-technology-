@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<students>
+
+    <student>
+        <rollno>IT101</rollno>
+        <name>Pravin R</name>
+        <department>Information Technology</department>
+        <year>III</year>
+        <email>pravin@example.com</email>
+        <mobile>9876543210</mobile>
+    </student>
+
+    <student>
+        <rollno>CSE102</rollno>
+        <name>Rahul Kumar</name>
+        <department>Computer Science</department>
+        <year>II</year>
+        <email>rahul@example.com</email>
+        <mobile>9123456789</mobile>
+    </student>
+
+    <student>
+        <rollno>ECE103</rollno>
+        <name>Anitha S</name>
+        <department>Electronics and Communication</department>
+        <year>I</year>
+        <email>anitha@example.com</email>
+        <mobile>9988776655</mobile>
+    </student>
+
+</students>

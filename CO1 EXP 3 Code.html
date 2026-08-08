@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Timetable</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #8ca1c1;
+            margin: 30px;
+        }
+
+        h1{
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        table{
+            width: 90%;
+            margin: auto;
+             
+            background-color: white;
+            border-spacing: 30px 30px;
+     
+   
+        }
+
+        caption{
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            padding: 15px;
+        }
+
+        th{
+            background-color: #3498db;
+            color: white;
+        }
+
+        th, td{
+            text-align: center;
+            padding: 12px;
+        }
+
+        tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+
+        tr:hover{
+            background-color: #d6eaf8;
+        }
+
+        .break{
+            background-color: #f39c12;
+            color: white;
+            font-weight: bold;
+        }
+
+        .lab{
+            background-color: #2ecc71;
+            color: white;
+            font-weight: bold;
+        }
+
+        .project{
+            background-color: #9b59b6;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+        }
+
+        .sports{
+            background-color: #e74c3c;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Creating a Class Timetable Using HTML Tables</h1>
+
+<table border="2" cellpadding="10" cellspacing="5">
+
+    <caption>B.Tech Information Technology - Class Timetable</caption>
+
+    <tr>
+        <th>Day / Time</th>
+        <th>9:00 - 10:00</th>
+        <th>10:00 - 11:00</th>
+        <th>11:00 - 12:00</th>
+        <th>12:00 - 1:00</th>
+        <th>1:00 - 2:00</th>
+        <th>2:00 - 3:00</th>
+        <th>3:00 - 4:00</th>
+    </tr>
+
+    <tr>
+        <th>Monday</th>
+        <td>Mathematics</td>
+        <td>Python</td>
+        <td>Operating Systems</td>
+        <td rowspan="5" class="break">LUNCH BREAK</td>
+        <td>DBMS</td>
+        <td>Computer Networks</td>
+        <td class="sports">Sports</td>
+    </tr>
+
+    <tr>
+        <th>Tuesday</th>
+        <td>Java</td>
+        <td>Software Engineering</td>
+        <td>Data Structures</td>
+        <td colspan="2" class="lab">Web Technology Lab</td>
+        <td>Library</td>
+    </tr>
+
+    <tr>
+        <th>Wednesday</th>
+        <td>DBMS</td>
+        <td>Python</td>
+        <td>Java</td>
+        <td>Operating Systems</td>
+        <td>Computer Networks</td>
+        <td>Placement Training</td>
+    </tr>
+
+    <tr>
+        <th>Thursday</th>
+        <td colspan="2" class="project">Mini Project</td>
+        <td>Artificial Intelligence</td>
+        <td>Mathematics</td>
+        <td>Java</td>
+        <td>Seminar</td>
+    </tr>
+
+    <tr>
+        <th>Friday</th>
+        <td>Computer Networks</td>
+        <td>Operating Systems</td>
+        <td>Python</td>
+        <td colspan="3" class="project">Project Work</td>
+    </tr>
+
+    <tr>
+        <th>Saturday</th>
+        <td>Soft Skills</td>
+        <td>Aptitude</td>
+        <td>Machine Learning</td>
+        <td colspan="4" class="lab">Industrial Training / Workshop</td>
+    </tr>
+
+</table>
+
+</body>
+</html>

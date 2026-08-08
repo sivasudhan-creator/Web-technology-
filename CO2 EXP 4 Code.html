@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Result Analysis</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#eef2f7;
+    padding:30px;
+}
+
+.container{
+    max-width:800px;
+    margin:auto;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.2);
+}
+
+h2{
+    text-align:center;
+    color:#1f4e79;
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    width:100%;
+    margin-top:20px;
+    padding:10px;
+    background:#1f4e79;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+table{
+    width:100%;
+    margin-top:20px;
+    border-collapse:collapse;
+}
+
+th,td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:center;
+}
+
+th{
+    background:#1f4e79;
+    color:white;
+}
+
+#summary{
+    margin-top:20px;
+    font-size:18px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h2>Student Result Analysis System</h2>
+
+<label>Student Name</label>
+<input type="text" id="name">
+
+<label>Marks in Subject 1</label>
+<input type="number" id="m1">
+
+<label>Marks in Subject 2</label>
+<input type="number" id="m2">
+
+<label>Marks in Subject 3</label>
+<input type="number" id="m3">
+
+<label>Marks in Subject 4</label>
+<input type="number" id="m4">
+
+<label>Marks in Subject 5</label>
+<input type="number" id="m5">
+
+<button onclick="analyze()">Analyze Result</button>
+
+<table id="resultTable" style="display:none;">
+<tr>
+<th>Student</th>
+<th>Total</th>
+<th>Average</th>
+<th>Highest</th>
+<th>Lowest</th>
+<th>Grade</th>
+<th>Result</th>
+</tr>
+<tbody id="output"></tbody>
+</table>
+
+<div id="summary"></div>
+
+</div>
+
+<script>
+
+function analyze(){
+
+let student={
+name:document.getElementById("name").value,
+marks:[
+Number(document.getElementById("m1").value),
+Number(document.getElementById("m2").value),
+Number(document.getElementById("m3").value),
+Number(document.getElementById("m4").value),
+Number(document.getElementById("m5").value)
+]
+};
+
+let total=0;
+
+for(let i=0;i<student.marks.length;i++){
+total+=student.marks[i];
+}
+
+let average=total/student.marks.length;
+let highest=Math.max(...student.marks);
+let lowest=Math.min(...student.marks);
+
+let grade,result;
+
+if(average>=90){
+grade="A+";
+}
+else if(average>=80){
+grade="A";
+}
+else if(average>=70){
+grade="B";
+}
+else if(average>=60){
+grade="C";
+}
+else if(average>=50){
+grade="D";
+}
+else{
+grade="F";
+}
+
+result=(average>=50)?"Pass":"Fail";
+
+document.getElementById("resultTable").style.display="table";
+
+document.getElementById("output").innerHTML=
+"<tr>"+
+"<td>"+student.name+"</td>"+
+"<td>"+total+"</td>"+
+"<td>"+average.toFixed(2)+"</td>"+
+"<td>"+highest+"</td>"+
+"<td>"+lowest+"</td>"+
+"<td>"+grade+"</td>"+
+"<td>"+result+"</td>"+
+"</tr>";
+
+document.getElementById("summary").innerHTML=
+"Highest Mark: "+highest+
+" | Lowest Mark: "+lowest+
+" | Average: "+average.toFixed(2);
+
+}
+
+</script>
+
+</body>
+</html>

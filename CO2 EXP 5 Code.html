@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive College Website</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+header{
+    background:#1f4e79;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+nav{
+    background:#16395c;
+    display:flex;
+    justify-content:center;
+    position:sticky;
+    top:0;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+}
+
+nav a:hover{
+    background:#0f2740;
+}
+
+.hero{
+    background:#4a90e2;
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+    padding:20px;
+}
+
+main{
+    background:white;
+    padding:20px;
+    border-radius:8px;
+}
+
+aside{
+    background:white;
+    padding:20px;
+    border-radius:8px;
+}
+
+.courses{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.card{
+    flex:1;
+    min-width:180px;
+    background:#eef2f7;
+    border:1px solid #ccc;
+    border-radius:8px;
+    padding:20px;
+    text-align:center;
+}
+
+footer{
+    background:#1f4e79;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+}
+
+@media(max-width:768px){
+
+nav{
+    flex-direction:column;
+}
+
+.container{
+    grid-template-columns:1fr;
+}
+
+.courses{
+    flex-direction:column;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>Simats Engineering College</h1>
+    <p>Knowledge • Innovation • Excellence</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Courses</a>
+    <a href="#">Admissions</a>
+    <a href="#">Contact</a>
+</nav>
+
+<section class="hero">
+    <h2>Welcome to Simats Engineering College</h2>
+    <p>Providing quality education and building successful careers.</p>
+</section>
+
+<div class="container">
+
+<main>
+
+<h2>Our Courses</h2>
+
+<div class="courses">
+
+<div class="card">
+<h3>B.Tech IT</h3>
+<p>Information Technology</p>
+</div>
+
+<div class="card">
+<h3>B.Tech CSE</h3>
+<p>Computer Science</p>
+</div>
+
+<div class="card">
+<h3>B.Tech ECE</h3>
+<p>Electronics & Communication</p>
+</div>
+
+</div>
+
+</main>
+
+<aside>
+
+<h2>Latest News</h2>
+
+<ul>
+<li>Admissions Open 2026</li>
+<li>Campus Placement Drive</li>
+<li>Annual Technical Symposium</li>
+<li>Sports Day Celebration</li>
+
+</ul>
+
+</aside>
+
+</div>
+
+<footer>
+<p>2026 Simats Engineering College. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

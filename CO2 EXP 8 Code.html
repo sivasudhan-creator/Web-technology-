@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Clock and Examination Countdown Timer</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#eef2f7;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    width:500px;
+    background:#fff;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 5px 10px rgba(0,0,0,0.2);
+}
+
+h2{
+    color:#1f4e79;
+    margin-bottom:20px;
+}
+
+.clock{
+    font-size:40px;
+    font-weight:bold;
+    color:#1f4e79;
+    margin-bottom:30px;
+}
+
+.timer{
+    font-size:28px;
+    color:#d32f2f;
+    margin-top:20px;
+}
+
+label{
+    font-weight:bold;
+}
+
+input{
+    padding:10px;
+    width:100%;
+    margin:10px 0 20px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Digital Clock</h2>
+
+<div class="clock" id="clock">00:00:00</div>
+
+<h2>Examination Countdown Timer</h2>
+
+<label>Select Exam Date & Time</label>
+
+<input type="datetime-local" id="examDate">
+
+<div class="timer" id="countdown">
+00 Days 00 Hours 00 Minutes 00 Seconds
+</div>
+
+</div>
+
+<script>
+
+function updateClock(){
+
+let now=new Date();
+
+let h=String(now.getHours()).padStart(2,"0");
+let m=String(now.getMinutes()).padStart(2,"0");
+let s=String(now.getSeconds()).padStart(2,"0");
+
+document.getElementById("clock").innerHTML=h+":"+m+":"+s;
+
+}
+
+function updateCountdown(){
+
+let input=document.getElementById("examDate").value;
+
+if(input=="") return;
+
+let examDate=new Date(input);
+let now=new Date();
+
+let diff=examDate-now;
+
+if(diff<=0){
+document.getElementById("countdown").innerHTML="Exam Started!";
+return;
+}
+
+let days=Math.floor(diff/(1000*60*60*24));
+let hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+let minutes=Math.floor((diff%(1000*60*60))/(1000*60));
+let seconds=Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML=
+days+" Days "+
+hours+" Hours "+
+minutes+" Minutes "+
+seconds+" Seconds";
+
+}
+
+setInterval(updateClock,1000);
+setInterval(updateCountdown,1000);
+
+updateClock();
+
+</script>
+
+</body>
+</html>

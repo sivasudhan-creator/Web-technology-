@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Quiz Application</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#eef2f7;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    width:600px;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.2);
+}
+
+h2{
+    text-align:center;
+    color:#1f4e79;
+    margin-bottom:20px;
+}
+
+.question{
+    margin-bottom:20px;
+}
+
+.question p{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#1f4e79;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#16395c;
+}
+
+#result{
+    margin-top:20px;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Online Quiz Application</h2>
+
+<form id="quizForm"></form>
+
+<button onclick="checkAnswers()">Submit Quiz</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+let questions=[
+{
+question:"1. HTML stands for",
+options:["Hyper Text Markup Language","High Text Machine Language","Hyper Tool Markup Language","Home Tool Markup Language"],
+answer:0
+},
+{
+question:"2. Which language is used for styling web pages?",
+options:["Python","CSS","Java","C++"],
+answer:1
+},
+{
+question:"3. Which JavaScript method selects an element by ID?",
+options:["querySelector()","getElementsByClassName()","getElementById()","getElementsByTagName()"],
+answer:2
+},
+{
+question:"4. Which symbol is used for comments in JavaScript?",
+options:["//","<!--->","#","**"],
+answer:0
+},
+{
+question:"5. Which HTML tag is used to create a hyperlink?",
+options:["&lt;img&gt;", "&lt;a&gt;", "&lt;link&gt;", "&lt;p&gt;"],
+answer:1
+}
+];
+
+let quiz=document.getElementById("quizForm");
+
+for(let i=0;i<questions.length;i++){
+
+let html=`<div class="question">
+<p>${questions[i].question}</p>`;
+
+for(let j=0;j<questions[i].options.length;j++){
+
+html+=`
+<label>
+<input type="radio" name="q${i}" value="${j}">
+${questions[i].options[j]}
+</label>`;
+}
+
+html+="</div>";
+
+quiz.innerHTML+=html;
+
+}
+
+function checkAnswers(){
+
+let score=0;
+
+for(let i=0;i<questions.length;i++){
+
+let answer=document.querySelector('input[name="q'+i+'"]:checked');
+
+if(answer && Number(answer.value)===questions[i].answer){
+score++;
+}
+
+}
+
+document.getElementById("result").innerHTML=
+"Your Score: "+score+" / "+questions.length;
+
+}
+
+</script>
+
+</body>
+</html>
