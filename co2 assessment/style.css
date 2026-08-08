@@ -1,0 +1,484 @@
+/* ==========================================================================
+   1. RESET, BASE STYLES & VARIABLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Global border-box sizing */
+}
+
+:root {
+    --primary-color: #1d3557;
+    --secondary-color: #457b9d;
+    --accent-color: #e63946;
+    --bg-light: #f8f9fa;
+    --text-dark: #2b2d42;
+    --text-muted: #6c757d;
+    --white: #ffffff;
+    --card-border: #e0e0e0;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.15);
+    --transition-fast: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. HEADER & STICKY NAVIGATION (Beyond Normal Flow)
+   ========================================================================== */
+/* Element Selector */
+header {
+    background-color: var(--primary-color);
+    box-shadow: var(--shadow-light);
+}
+
+/* Sticky Navigation Requirement */
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Descendant Selector */
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo h1 {
+    font-size: 1.4rem;
+    color: var(--white);
+}
+
+/* Child Selector */
+.brand-logo h1 > span {
+    color: #a8dadc;
+    font-weight: 300;
+}
+
+/* Flexbox Navigation */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-fast);
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* Pseudo-class: hover & focus */
+.nav-links a:hover,
+.nav-links a:focus {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    outline: none;
+}
+
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
+.hero-section {
+    background: linear-gradient(135deg, #1d3557 0%, #457b9d 100%);
+    color: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h2 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Text Shadow */
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+}
+
+.campaign-period {
+    font-size: 0.95rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 12px 28px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(230, 57, 70, 0.4);
+    transition: var(--transition-fast);
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px); /* CSS Transform */
+    box-shadow: 0 6px 14px rgba(230, 57, 70, 0.6);
+}
+
+/* ==========================================================================
+   4. EVENT CATALOGUE & FLEXBOX / GRID LAYOUT
+   ========================================================================== */
+.main-content {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.section-desc {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+}
+
+/* Primary CSS Grid Layout for Cards */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 2rem;
+}
+
+/* Event Card - Explicit Box Model Demonstration */
+.event-card {
+    background-color: var(--white);
+    position: relative; /* Context for absolute badge */
+    border: 2px solid var(--card-border); /* Visible Border */
+    padding: 20px;                        /* Visible Padding */
+    margin: 10px 0;                       /* Visible Margin */
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition-fast);
+    overflow: hidden;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--secondary-color);
+}
+
+/* Positioned Event Status Badge (Absolute Positioning) */
+.badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 12px;
+    color: var(--white);
+    z-index: 10;
+}
+
+.status-open { background-color: #2a9d8f; }
+.status-limited { background-color: #e9c46a; color: #000; }
+.status-closed { background-color: #e63946; }
+
+/* Category Tags */
+.category-tag {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.tech { background-color: #e0f2fe; color: #0369a1; }
+.cultural { background-color: #fce7f3; color: #be185d; }
+.placement { background-color: #fef3c7; color: #b45309; }
+.sports { background-color: #dcfce7; color: #15803d; }
+
+.event-card h3 {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.event-meta {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.event-desc {
+    font-size: 0.92rem;
+    color: var(--text-dark);
+    margin: 12px 0 18px 0;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.reg-status {
+    font-size: 0.85rem;
+}
+
+.btn-card {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 8px 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.btn-card:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-disabled {
+    background-color: var(--text-muted);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   5. REGISTRATION FORM
+   ========================================================================== */
+.registration-section {
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    box-shadow: var(--shadow-light);
+    margin-top: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.registration-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.registration-section p {
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+/* Group Selector */
+label, input, select {
+    font-size: 0.95rem;
+}
+
+label {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* Attribute Selectors */
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--card-border);
+    border-radius: 6px;
+    transition: var(--transition-fast);
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(69, 123, 157, 0.2);
+}
+
+.btn-submit {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    margin-top: 1rem;
+}
+
+.btn-submit:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Pseudo-element Selector Requirement */
+.form-group label::after {
+    content: " *";
+    color: var(--accent-color);
+}
+
+/* ==========================================================================
+   6. FOOTER & FIXED POSITIONING
+   ========================================================================== */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 3rem 2rem 1rem 2rem;
+    margin-top: 4rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-column h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #a8dadc;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+    color: #f1faee;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.footer-column a:hover {
+    color: var(--accent-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    color: #a8dadc;
+}
+
+/* Fixed Help Button Requirement (Positioning) */
+.fixed-help-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    background-color: var(--accent-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 9999;
+    transition: var(--transition-fast);
+}
+
+.fixed-help-btn:hover {
+    transform: scale(1.1);
+    background-color: #d62828;
+}
+
+/* ==========================================================================
+   7. RESPONSIVE DESIGN (MEDIA QUERIES - 375px & Mobile support)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .nav-links {
+        gap: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.75rem;
+    }
+
+    .event-grid {
+        grid-template-columns: 1fr; /* Single column on mobile viewports */
+    }
+
+    .registration-section {
+        padding: 1.5rem 1rem;
+        margin-top: 2rem;
+    }
+
+    .fixed-help-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+    }
+}

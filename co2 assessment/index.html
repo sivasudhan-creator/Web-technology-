@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex University | Event Registration Portal</title>
+    <!-- External CSS Sheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Internal CSS Demonstration (Targeting top announcement banner) -->
+    <style>
+        .internal-announcement-banner {
+            background: linear-gradient(90deg, #1d3557, #457b9d);
+            color: #ffffff;
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Announcement Banner (Internal CSS Target) -->
+    <div class="internal-announcement-banner">
+        📢 Annual Campus Fest & Hackathon Registration is Now Live!
+    </div>
+
+    <!-- Header Section -->
+    <header class="main-header" id="site-header">
+        <div class="nav-container">
+            <div class="brand-logo">
+                <h1>Apex University <span>Events</span></h1>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#events">Catalogue</a></li>
+                    <li><a href="#register">Register</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-content">
+            <!-- Inline CSS Demonstration (Targeting status highlight tag) -->
+            <span style="color: #e63946; font-weight: 700; text-transform: uppercase; background-color: #ffe6e6; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 12px;" class="inline-badge">
+                Spring Semester 2026
+            </span>
+            <h2>Empower Your Journey Through Events</h2>
+            <p class="hero-subtitle">Participate in technical hackathons, cultural showcases, placement readiness workshops, and inter-department sports.</p>
+            <p class="campaign-period"><strong>Campaign Window:</strong> August 10, 2026 – September 05, 2026</p>
+            <a href="#register" class="btn-primary">Register Now</a>
+        </div>
+    </section>
+
+    <!-- Event Catalogue Section -->
+    <main class="main-content">
+        <section class="events-section" id="events">
+            <h2 class="section-title">Upcoming University Events</h2>
+            <p class="section-desc">Explore technical, cultural, career placement, and sports competitions.</p>
+
+            <div class="event-grid">
+                
+                <!-- Event Card 1: Technical -->
+                <article class="event-card" id="card-hackathon">
+                    <div class="badge status-open">Open</div>
+                    <span class="category-tag tech">Technical</span>
+                    <h3>HackApex 24-Hour Codefest</h3>
+                    <p class="event-meta"><strong>Date & Time:</strong> Aug 22, 2026 | 09:00 AM</p>
+                    <p class="event-meta"><strong>Venue:</strong> Tech Block, Lab 402</p>
+                    <p class="event-desc">Build innovative solutions for real-world problems in AI, Web Dev, and IoT. Team size: 2-4.</p>
+                    <div class="card-footer">
+                        <span class="reg-status">Status: <strong>Active</strong></span>
+                        <a href="#register" class="btn-card">Select Event</a>
+                    </div>
+                </article>
+
+                <!-- Event Card 2: Cultural -->
+                <article class="event-card" id="card-cultural">
+                    <div class="badge status-open">Open</div>
+                    <span class="category-tag cultural">Cultural</span>
+                    <h3>Rhythm & Beats Music Fest</h3>
+                    <p class="event-meta"><strong>Date & Time:</strong> Aug 28, 2026 | 05:00 PM</p>
+                    <p class="event-meta"><strong>Venue:</strong> University Open Air Theatre</p>
+                    <p class="event-desc">An inter-department musical night featuring band performances, solo singing, and instrumental acts.</p>
+                    <div class="card-footer">
+                        <span class="reg-status">Status: <strong>Active</strong></span>
+                        <a href="#register" class="btn-card">Select Event</a>
+                    </div>
+                </article>
+
+                <!-- Event Card 3: Placement -->
+                <article class="event-card" id="card-placement">
+                    <div class="badge status-limited">Limited</div>
+                    <span class="category-tag placement">Placement</span>
+                    <h3>Mock Interview & Resume Bootcamp</h3>
+                    <p class="event-meta"><strong>Date & Time:</strong> Sep 01, 2026 | 10:00 AM</p>
+                    <p class="event-meta"><strong>Venue:</strong> Auditorium B</p>
+                    <p class="event-desc">Direct technical and HR interview simulations with industry corporate leaders and alumni.</p>
+                    <div class="card-footer">
+                        <span class="reg-status">Status: <strong>Filling Fast</strong></span>
+                        <a href="#register" class="btn-card">Select Event</a>
+                    </div>
+                </article>
+
+                <!-- Event Card 4: Sports -->
+                <article class="event-card" id="card-sports">
+                    <div class="badge status-closed">Closed</div>
+                    <span class="category-tag sports">Sports</span>
+                    <h3>Inter-Department Futsal League</h3>
+                    <p class="event-meta"><strong>Date & Time:</strong> Sep 04, 2026 | 03:00 PM</p>
+                    <p class="event-meta"><strong>Venue:</strong> Sports Complex Turf</p>
+                    <p class="event-desc">5-a-side football tournament for men and women teams across all engineering and science departments.</p>
+                    <div class="card-footer">
+                        <span class="reg-status">Status: <strong>Closed</strong></span>
+                        <a href="#register" class="btn-card btn-disabled">Closed</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Registration Form Section -->
+        <section class="registration-section" id="register">
+            <div class="form-container">
+                <h2>Student Event Registration</h2>
+                <p>Complete the form below to confirm your seat for university events.</p>
+
+                <form action="#" method="post" class="registration-form">
+                    <div class="form-group">
+                        <label for="studentName">Full Student Name *</label>
+                        <input type="text" id="studentName" name="studentName" placeholder="e.g. John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regNumber">Register Number *</label>
+                        <input type="text" id="regNumber" name="regNumber" placeholder="e.g. 211520104001" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department">Department *</label>
+                        <select id="department" name="department" required>
+                            <option value="" disabled selected>Select Department</option>
+                            <option value="CSE">Computer Science & Engineering</option>
+                            <option value="ECE">Electronics & Communication</option>
+                            <option value="MECH">Mechanical Engineering</option>
+                            <option value="CIVIL">Civil Engineering</option>
+                            <option value="IT">Information Technology</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="student@apexuniv.edu" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventSelect">Select Event *</label>
+                        <select id="eventSelect" name="eventSelect" required>
+                            <option value="" disabled selected>Choose an event</option>
+                            <option value="hackathon">HackApex 24-Hour Codefest</option>
+                            <option value="cultural">Rhythm & Beats Music Fest</option>
+                            <option value="placement">Mock Interview & Resume Bootcamp</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Submit Registration</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer" id="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Apex University</h3>
+                <p>Student Affairs & Event Management Cell</p>
+                <p>123 University Campus Road, Knowledge City</p>
+            </div>
+            <div class="footer-column">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="#hero">Portal Home</a></li>
+                    <li><a href="#events">Event Catalogue</a></li>
+                    <li><a href="#register">Registration</a></li>
+                    <li><a href="#">Campus Rules</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Support</h3>
+                <p>Email: events@apexuniv.edu</p>
+                <p>Phone: +91 (044) 2765-4321</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Apex University. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Fixed Floating Help Button (Beyond Normal Flow) -->
+    <button class="fixed-help-btn" id="helpBtn" title="Help & Support">?</button>
+
+</body>
+</html>
