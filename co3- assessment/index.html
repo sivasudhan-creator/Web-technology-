@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Student Result Processing</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f5f9;
+            padding: 40px;
+        }
+
+        .container {
+            width: 450px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            text-align: center;
+            color: #1f4e79;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background: #1f4e79;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #163a5c;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Student Result Processing</h2>
+
+    <form action="StudentResultServlet" method="post">
+
+        <label>Student Name</label>
+        <input type="text" name="name">
+
+        <label>Register Number</label>
+        <input type="text" name="regNo">
+
+        <label>Subject 1 Mark</label>
+        <input type="number" name="mark1" min="0" max="100">
+
+        <label>Subject 2 Mark</label>
+        <input type="number" name="mark2" min="0" max="100">
+
+        <label>Subject 3 Mark</label>
+        <input type="number" name="mark3" min="0" max="100">
+
+        <button type="submit">Calculate Result</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Preview</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f5f9;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            width: 450px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            text-align: center;
+            color: #1f4e79;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #displayBtn {
+            background: #1f4e79;
+            color: white;
+        }
+
+        #removeBtn {
+            background: #c0392b;
+            color: white;
+        }
+
+        #profile {
+            margin-top: 25px;
+        }
+
+        .student-profile {
+            padding: 20px;
+            border-left: 5px solid #1f4e79;
+            background: #eef5fb;
+            border-radius: 8px;
+        }
+
+        .student-profile h3 {
+            color: #1f4e79;
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Student Registration</h2>
+
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label for="regNo">Register Number</label>
+        <input type="text" id="regNo" placeholder="Enter register number">
+
+        <label for="department">Department</label>
+        <select id="department">
+            <option value="">Select Department</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Electronics and Communication">Electronics and Communication</option>
+            <option value="Electrical and Electronics">Electrical and Electronics</option>
+        </select>
+
+        <label for="year">Year of Study</label>
+        <select id="year">
+            <option value="">Select Year</option>
+            <option value="I Year">I Year</option>
+            <option value="II Year">II Year</option>
+            <option value="III Year">III Year</option>
+            <option value="IV Year">IV Year</option>
+        </select>
+
+        <button id="displayBtn">Display Profile</button>
+        <button id="removeBtn">Remove Profile</button>
+
+        <div id="profile"></div>
+
+    </div>
+
+    <script>
+        document.getElementById("displayBtn").addEventListener("click", function () {
+
+            const name = document.getElementById("name").value;
+            const regNo = document.getElementById("regNo").value;
+            const department = document.getElementById("department").value;
+            const year = document.getElementById("year").value;
+
+            if (name === "" || regNo === "" || department === "" || year === "") {
+                alert("Please enter all student details.");
+                return;
+            }
+
+            const profile = document.getElementById("profile");
+
+            profile.textContent = "";
+
+            const card = document.createElement("div");
+            card.classList.add("student-profile");
+
+            const heading = document.createElement("h3");
+            heading.textContent = "Student Profile";
+
+            const namePara = document.createElement("p");
+            namePara.textContent = "Name: " + name;
+
+            const regPara = document.createElement("p");
+            regPara.textContent = "Register Number: " + regNo;
+
+            const deptPara = document.createElement("p");
+            deptPara.textContent = "Department: " + department;
+
+            const yearPara = document.createElement("p");
+            yearPara.textContent = "Year of Study: " + year;
+
+            card.appendChild(heading);
+            card.appendChild(namePara);
+            card.appendChild(regPara);
+            card.appendChild(deptPara);
+            card.appendChild(yearPara);
+
+            profile.appendChild(card);
+        });
+
+        document.getElementById("removeBtn").addEventListener("click", function () {
+            document.getElementById("profile").textContent = "";
+        });
+    </script>
+
+</body>
+</html>
